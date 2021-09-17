@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\paymentview;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/create', 'App\Http\Controllers\GuestController@walkinview');
+Route::get('/walkin/{booking?}', 'App\Http\Controllers\GuestController@walkinview');
+Route::get('/pay',[paymentview::class,'payment']);
 Route::post('/create', 'App\Http\Controllers\GuestController@walkin')->name('create');
-

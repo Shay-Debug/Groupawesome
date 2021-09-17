@@ -101,39 +101,34 @@
 
     <div class="container-fluid">
         <div class='container'>
-            <div class="card mx-auto col-md-5 col-8 mt-3 p-0"> <img class='mx-auto pic' src="image/1Dolphin-Cove-natali-.jpg" />
+          <div class='table-responsive'>
+            <table class='table table-bordered'>
+              <tr>
+              <td>{{'Customer Name'}}</td>
+              <td>{{$user['guest_name']}}</td>
+              </tr>
+              <th>Programme Name</th>
+              <th>Number of Adults</th>
+              <th>Cost of Adults</th>
+              <th>Number of Children</th>
+              <th>Children cost</th>
+              <th>Total</th>
 
-<?php $total=0?>
-{{--                {{$pt}}--}}
-@if($ptype=="cash")
-                @foreach($data as $info)
-                <div class="card-title d-flex px-4">
-                    <p class="item text-muted">{{$info->programme_name}}</p>
-                    <p>{{$info->cost}}</p>
-                    <?php $total=$total+$info->cost ?>
-                </div>
-                    @endforeach
-                <div class="card-body">
-                    <p class="text-muted">Your payment details</p>
-                    <p class="item text-muted">Name</p>
-                    <p>{{$gname}}</p>
-                    <p class="item text-muted">Total Cost</p>
-                    <p>{{$total}}</p>
-                    <div class="numbr mb-3"> <i class=" col-1 text-muted p-0"></i> <input class="col-10 p-0" type="text" placeholder="Cash Received"> </div>
-                </div>
-
-
-@elseif($ptype=="credit")
-
-{{--    Enter staement--}}
-
-@endif
-                <div class="footer text-center p-0">
-                    <div class="col-lg-12 col-12 p-0">
-                        <p class="order">Confirm Payment</p>
-                    </div>
-                </div>
-            </div>
+              @foreach($booking as $booking_info)
+              <tr>
+                <td>{{$booking_info['programme_name']}}</td>
+                <td>{{$booking_info['adults_num']}}</td>
+                <td>{{$booking_info['adult_cost']}}</td>
+                <td>{{$booking_info['child_num']}}</td>
+                <td>{{$booking_info['child_cost']}}</td>
+                <td>{{$booking_info['total_cost']}}</td>
+              </tr>
+              @endforeach
+              <tr>
+                <td><a href="/walkin/{{$booking_info['booking_id']}}"><button type="button"class="btn btn-primary">Add Excurison</button></a></td>
+              </tr>
+            </table>
+          </div>
         </div>
-        </div>
+    </div>
 @endsection
