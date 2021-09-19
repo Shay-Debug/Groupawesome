@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class tour_comp extends Model
 {
     use HasFactory;
+    public $table='tour_companys';
+    public $timestamps=false;
+
+
 }

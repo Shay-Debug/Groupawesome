@@ -27,6 +27,7 @@ class GuestController extends Controller
         $excursion=excurison::insert(['date_booked'=>date('Y-m-d'),'exc_date'=>$request->date,
         'adults_num'=>$request->adults,'child_num'=>$request->children,'child_cost'=>$children_cost,
         'adult_cost'=>$adult_cost,'total_cost'=>$total_cost,'booking_id'=>$request->booking,'programme_id'=>$request->programme]);
+        $updatebookingcost=booking::where('booking_id',$request->booking)->increment('total_cost',$total_cost);
         return redirect('/pay');
       }
     $cost=cost::where('programme_id',$request->programme)->first();

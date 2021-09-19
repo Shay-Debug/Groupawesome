@@ -33,7 +33,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="{{url('/walkin')}}">Walk-In-Guest</a></li>
-                        <li><a class="dropdown-item" href="#">Tour-Company-Guest</a></li>
+                        <li><a class="dropdown-item" href="/tourguest">Tour-Company-Guest</a></li>
                    </ul>
                 </li>
             </ul>

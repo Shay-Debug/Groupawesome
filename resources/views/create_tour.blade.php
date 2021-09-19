@@ -31,6 +31,7 @@
                     <input type="date" class="form-control" name="date">
                 </div>
             </div>
+            <input type="hidden" name="booking" value="{{$booking}}">
 
 
 {{--            <div class="form-group row">--}}
