@@ -28,3 +28,37 @@ Route::get('/tourguest/{booking?}',[tourguests::class,'tourview']);
 Route::post('/createtour',[tourcust::class,'maketour']);
 Route::post('/deletebooking',[deletebooking::class,'booking_delete']);
 Route::post('/create', 'App\Http\Controllers\GuestController@walkin')->name('create');
+
+
+
+Route::get('/programmes', function () {
+    return view('programmes');
+});
+
+// Programme Controller
+route::get("/programmes",[ProgrammesController::class,'programinfo']);
+
+// Route to addprogramme blade
+Route::get('/add', function () {
+    return view('addprogramme');
+});
+
+// form action will be carried out through this controller to add new programme and store it into the database
+Route::post("/addprogramme",[ProgrammesController::class,'addprogramme']);
+
+
+Route::get('/updateprograme', function () {
+    return view('updateprograminfo');
+});
+
+// updateprogramme form action will be carried out through this method to show exsisting programme info inside database
+
+Route::get('/edit/{id?}',[ProgrammesController::class, 'programmeshowdata']);//Controller Working
+
+// This method will save changes made to program
+Route::post('edit',[ProgrammesController::class, 'updateprogramdata']);
+
+// Delete program info
+Route::get('delete/{id?}',[ProgrammesController::class,'programdelete']);
+
+
